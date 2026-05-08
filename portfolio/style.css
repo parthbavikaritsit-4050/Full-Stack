@@ -11,11 +11,12 @@
     text-align: center;
     position: relative;
     margin-top: 60px;
+    scroll-margin-top: 90px;
 }
 
 .navbar{
     background-color: black;
-    position: sticky;
+    position: fixed;
     top:0px;
     width: 100%;
     height:50px;
@@ -24,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-    z-index: 1000;
+    z-index: 10;
 }
 .navbar a{
     color: white;
@@ -73,10 +74,9 @@
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 10px;
-  margin-top: 5px;
+  margin-top: 50px;
   padding: 10px;
   
-
 }
 .aboutme .banner img{
 height: 300px;
@@ -130,15 +130,21 @@ width: 500px;
     box-shadow: 6px 18px  16px rgba(0, 0, 0,0.3);    
 }
 
-.card button{
+.card a{
     border: 1px solid rgb(13, 110, 253);
     border-radius: 6px;
-    height:40px;
-    width: 100px;
+    height:60px;
+    width: 120px;
     color: rgb(13, 110, 253);
+    padding: 5px;
+    text-decoration: none;
+    background-color: rgb(239, 237, 237);
+    font-size:medium;
+
+    
 }
 
-.card button:hover{
+.card a:hover{
     background-color:rgb(13, 110, 253);
     color: aliceblue;
 }
@@ -248,8 +254,9 @@ width: 500px;
 }
 
 
-
-
+.contact a{
+    text-decoration: none;
+}
 .contact button{
     border: 1px solid rgb(13, 110, 253);
     border-radius: 6px;
