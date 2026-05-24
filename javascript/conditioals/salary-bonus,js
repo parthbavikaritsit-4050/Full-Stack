@@ -1,0 +1,16 @@
+let experince = 11;
+
+if (experince>10) {
+    console.log("You got 20% salary hike!!");
+
+}
+
+else if (experince>5) {
+    console.log("You got 10% salary hike!!");
+
+}
+
+else{
+
+    console.log("You got 5% salary hike!");
+}

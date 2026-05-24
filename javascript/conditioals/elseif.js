@@ -1,4 +1,4 @@
-let per=prompt("Enter Your Percentage")
+let per=prompt("Enter Your Percentage");
 //prompt is used to take input from user
 if(per>=90 && per<=100)
     console.log("Congratulations! You secured Excellent Class")
