@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .grid-container{
+    display: grid;
+
+    /* Column Widths */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    /* Row Heights */
+    grid-template-rows: 180px 180px 180px;
+
+    gap: 10px;
+    height: 100vh;
+}
+
+.item{
+    border: 2px solid black;
+}
+
+/* Left Tall Box */
+.item1{
+    background: lightgreen;
+    grid-row: 1 / 4;
+}
+
+/* Top Middle Long Box */
+.item2{
+    background: lightgreen;
+    grid-column: 2 / 4;
+}
+
+/* Top Right Box */
+.item3{
+    background: red;
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+/* Middle Row */
+.item4{
+    background: orange;
+    grid-row:2/3 ;
+    grid-column:2/3 ;
+}
+
+.item5{
+    background: red;
+    grid-row:2/3 ;
+    grid-column:3/4 ;
+}
+
+/* Right Tall Box */
+.item6{
+    background: lightgreen;
+    grid-row: 2 / 4;
+    grid-column: 4 / 5;
+}
+
+/* Bottom Row */
+.item7{
+    background: red;
+    grid-row:3/4 ;
+    grid-column:2/3 ;
+    
+}
+.item8{
+    background: orange;
+    grid-row:3/4;
+    grid-column:3/4;
+}
+</style>
+</head>
+<body>
+    
+</body>
+</html>
+
+<div class="grid-container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+</div>
