@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head background>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+
+        body{
+            background-image:url();
+            color: aliceblue;
+            font-size:xx-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+       
+
+
+    .container {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       height: 100vh; /* Changed from 100% to 100vh */
+}
+
+button{
+    border-radius: 15px;
+    height: 40px;
+    width: 80px;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+        ul{
+            width: 300px;
+            height: 200px;
+            overflow: auto;
+            border: 1px solid rgba(0,0,0,0.2);;
+            box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+            font-size:x-large;
+                    
+        }
+
+    
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Timer Of 30 Seconds</h1>
+
+   
+    <h1 id="display">00:00:00</h1>
+    <div>
+    <button id="Startbtn">Start</button>
+    <button id="Recordbtn">Record</button>
+    <button id="Resetbtn">Reset</button></div>
+
+    <ul id="list"></ul>
+
+    </div>
+
+    <script>
+        let Seconds = 0;
+        let milisecond=0;
+        let minutes=0;
+
+        let input = 0;
+        let running=false;
+        let timer;//function
+
+        let counter=0;//for laps 
+
+        const Startbtn = document.getElementById("Startbtn"); // frist method to add two function to event listner
+        const Record = document.getElementById("Recordbtn");
+        const Reset= document.getElementById("Resetbtn");
+        let display = document.getElementById("display");
+        let ul = document.getElementById("list");
+
+    
+
+        Startbtn.addEventListener("click", () => {
+            if(!running){start();}
+            else{pause();} 
+        } );
+            
+            function start(){
+                
+                running=true;
+                timer = setInterval(()=>{
+                milisecond+=1;
+
+                if(milisecond==10){ Seconds+=1;milisecond=0; }
+
+                if(Seconds==60){ minutes+=1;Seconds=0; }
+
+                display.innerText =`${String(minutes).padStart(2,"0")}:${String(Seconds).padStart(2,"0")}:${String(milisecond).padStart(2,"0")}`;
+
+                Startbtn.textContent="Pause";
+
+
+            },100)
+
+            }
+
+
+        function pause()
+        {
+            clearInterval(timer);
+            running=false;
+            Startbtn.textContent="Start";
+
+        }
+    
+        Record.addEventListener("click", () => {
+
+            const child = document.createElement("li");
+            input =display.innerText;
+            counter++;
+
+
+            child.innerHTML = `<h3>Lap ${counter}: ${input}</h3>`;
+            ul.appendChild(child);
+
+        });
+
+        Reset.addEventListener("click",()=>{
+           clearInterval(timer);
+            milisecond=0;
+            Seconds=0;
+            minutes=0;
+            display.innerText =`${String(minutes).padStart(2,"0")}:${String(Seconds).padStart(2,"0")}:${String(milisecond).padStart(2,"0")}`;
+            Startbtn.textContent="Start";
+            running = false;
+            ul.innerText="";
+
+
+
+        });
+    </script>
+
+</body>
+</html>

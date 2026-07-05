@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head background>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body {
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs/22094.jpg");
+    background-repeat: no-repeat;
+}
+
+    .container{
+       display: block;
+       width: 300px;
+       margin: 0 auto;
+        }
+
+        ul{
+            width: 300px;
+            height: 400px;
+            overflow: auto;
+            border: 1px solid rgba(0,0,0,0.2);;
+            box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
+                    
+        }
+
+        ul::-webkit-scrollbar {  /*--This hides scrollbar but keeps functionality--> */
+    display: none;}
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Timer Of 30 Seconds</h1>
+
+    <h1 id="txt"></h1>
+
+    <button id="btn">Start</button>
+    <button id="Record">Record</button>
+
+    <ul id="list"></ul>
+
+    </div>
+
+    <script>
+        let Seconds = 10;
+        let input = 0;
+
+        const btn = document.getElementById("btn"); // frist method to add two function to event listner
+        const Record = document.getElementById("Record");
+
+        let txt = document.getElementById("txt");
+        let isrunning = false;
+
+        btn.addEventListener("click", () => {
+            if (!isrunning) {
+                start();
+            } else {
+                stop();
+            }
+        });
+
+        // btn.addEventListener("click",start);     second method
+
+        const start = () => {
+
+            isrunning = true;
+
+            timer = setInterval(() => {
+
+                btn.textContent = "Stop";
+                console.log(Seconds);
+
+                input = Seconds;
+                txt.innerText = Seconds;
+
+                Seconds--;
+
+                if (Seconds < 0) {
+                    clearInterval(timer);
+                }
+
+            }, 1000);
+
+        };
+
+        const stop = () => {
+
+            clearInterval(timer);
+
+            console.log("Stopped");
+
+            isrunning = false;
+            input = Number(txt.innerText);
+            Seconds = 10;
+
+            btn.textContent = "Start";
+
+        };
+
+        Record.addEventListener("click", () => {
+
+            ul = document.getElementById("list");
+
+            const child = document.createElement("li");
+
+            child.innerHTML = `<h3>The TimeStamp Recorded: ${input}</h3>`;
+            ul.appendChild(child);
+
+        });
+    </script>
+
+</body>
+</html>
