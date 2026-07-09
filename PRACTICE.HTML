@@ -1,145 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-<head background>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer</title>
-    <style>
 
-        body{
-            background-image:url();
-            color: aliceblue;
-            font-size:xx-large;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-       
+<html>
 
+  <head>
 
-    .container {
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       width: 100%;
-       height: 100vh; /* Changed from 100% to 100vh */
-}
+    <title>Space Travel Blog</title>
 
-button{
-    border-radius: 15px;
-    height: 40px;
-    width: 80px;
-    padding: 10px;
-    margin: 5px;
-}
+    <link rel="stylesheet" href="style.css" />
 
+  </head>
 
-        ul{
-            width: 300px;
-            height: 200px;
-            overflow: auto;
-            border: 1px solid rgba(0,0,0,0.2);;
-            box-shadow: 0px 0px 30px rgba(0,0,0,0.2);
-            font-size:x-large;
-                    
-        }
+  <body>
 
-    
-    </style>
-</head>
+    <h1>Space Travel Blog</h1>
 
-<body>
-<div class="container">
-    <h1>Timer Of 30 Seconds</h1>
-
-   
-    <h1 id="display">00:00:00</h1>
     <div>
-    <button id="Startbtn">Start</button>
-    <button id="Recordbtn">Record</button>
-    <button id="Resetbtn">Reset</button></div>
 
-    <ul id="list"></ul>
+      <p>
+
+        Breaking news from <span class="location">Mars Colony Alpha</span>! Scientists have discovered a new type of crystal that glows in the dark.
+
+        The team leader, <span class="highlight">Dr. Sarah Johnson</span>, announced this finding on <span class="date">October 25th</span>. The
+
+        crystals, nicknamed "Starlight Stones," emit a bright blue glow when exposed to the cold Martian night. Researchers believe these crystals
+
+        could revolutionize lighting systems in future space colonies.
+
+      </p>
+
+      <p>
+
+        These stones can also be used to create a new type of glass that is stronger and lighter than any other material. Further testing is needed
+
+        however Dr. Sarah Johnson confirmed that their research was in the right direction.
+
+      </p>
 
     </div>
 
-    <script>
-        let Seconds = 0;
-        let milisecond=0;
-        let minutes=0;
+ 
 
-        let input = 0;
-        let running=false;
-        let timer;//function
+    <div class="author-section">
 
-        let counter=0;//for laps 
+      <p>
 
-        const Startbtn = document.getElementById("Startbtn"); // frist method to add two function to event listner
-        const Record = document.getElementById("Recordbtn");
-        const Reset= document.getElementById("Resetbtn");
-        let display = document.getElementById("display");
-        let ul = document.getElementById("list");
+        This report was filed by <span class="highlight">James Wilson</span> from <span class="location">Olympus Base</span>. James has been reporting
 
-    
+        on Mars developments for the past <span class="date">3 years</span>.
 
-        Startbtn.addEventListener("click", () => {
-            if(!running){start();}
-            else{pause();} 
-        } );
-            
-            function start(){
-                
-                running=true;
-                timer = setInterval(()=>{
-                milisecond+=1;
+      </p>
 
-                if(milisecond==10){ Seconds+=1;milisecond=0; }
+    </div>
 
-                if(Seconds==60){ minutes+=1;Seconds=0; }
+ 
 
-                display.innerText =`${String(minutes).padStart(2,"0")}:${String(Seconds).padStart(2,"0")}:${String(milisecond).padStart(2,"0")}`;
+    <div>
 
-                Startbtn.textContent="Pause";
+      <p>
 
+        In related news, the <span class="location">Luna Station</span> has reported successful testing of their new gravity generators. The project,
 
-            },100)
+        led by <span class="highlight">Dr. Maria Rodriguez</span>, completed its final phase on <span class="date">October 23rd</span>. These
 
-            }
+        developments mark a new chapter in human space exploration, with both Mars and Moon bases making significant progress in sustainable living
 
+        conditions.
 
-        function pause()
-        {
-            clearInterval(timer);
-            running=false;
-            Startbtn.textContent="Start";
+      </p>
 
-        }
-    
-        Record.addEventListener("click", () => {
+      <p>The gravity generators will allow the astronauts to build larger habitats and explore further into space.</p>
 
-            const child = document.createElement("li");
-            input =display.innerText;
-            counter++;
+      <p>
 
+        Meanwhile, more equipment will have to be transported to the moon to support the new base. The company tasked with this project is already
 
-            child.innerHTML = `<h3>Lap ${counter}: ${input}</h3>`;
-            ul.appendChild(child);
+        preparing for the upcoming mission.
 
-        });
+      </p>
 
-        Reset.addEventListener("click",()=>{
-           clearInterval(timer);
-            milisecond=0;
-            Seconds=0;
-            minutes=0;
-            display.innerText =`${String(minutes).padStart(2,"0")}:${String(Seconds).padStart(2,"0")}:${String(milisecond).padStart(2,"0")}`;
-            Startbtn.textContent="Start";
-            running = false;
-            ul.innerText="";
+    </div>
 
+  </body>
 
-
-        });
-    </script>
-
-</body>
 </html>
+
+ 

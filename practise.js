@@ -1,54 +1,24 @@
-function login(password){
-    return new Promise((resolve,reject)=>{
-        if(password=="admin")
-        {
-            setTimeout(()=>{
-            resolve("Login succesful..!")
-            },2000)
-        }
+class Student {
+    #name;
 
-        else{
-            setTimeout(()=>{
-                reject("Invalid Password..!")
+    constructor(name) {
+        this.#name = name;
+    }
 
-            })
-        }
-    })
-}
+    get name() {
+        return this.#name;
+    }
 
-function getProfile()
-{
-    return new Promise((resolve, reject) => {
-        setTimeout(()={
-            resolve({id:101,name:"Parth"})
-        })
-    })
-}
-
-function getMarks()
-{
-    return new Promise((resolve, reject) => {
-        setTimeout(()=>{
-            resolve({java:90,javascript:95,react:92})
-        })
-    })
-}
-
-async function studentportal(password) {
-    try{
-        const loginStatus=await login(password);
-        console.log(loginStatus);
-        const student = await getProfile();
-        console.log(student);
-        const marks= await getMarks();
-        console.log(marks);
-    } catch (error) {
-        console.log("Error occured: ",error);
-    } finally{
-        console.log("Portal Closed!");
+    set name(value) {
+        this.#name = value;
     }
 }
 
-studentPortal("admin");
-studentPortal("admin123");
-// here you can see both methods portal executed parrellelly
+const s1 = new Student("Parth");
+
+console.log(s1.name); // Parth
+
+// Change the name
+s1.name = "Rahul";
+
+console.log(s1.name); // Rahul
